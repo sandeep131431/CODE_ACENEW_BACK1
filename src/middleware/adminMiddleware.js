@@ -6,7 +6,12 @@ const adminMiddleware = async (req,res,next)=>{
 
     try{
 
-        const {token} = req.cookies;
+      const token =
+      req.cookies?.token ||
+      req.body?.token ||
+      req.headers?.authorization?.replace("Bearer ", "") ||
+      null;
+      
         if(!token)
             throw new Error("Token is not persent");
 
