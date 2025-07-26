@@ -30,11 +30,13 @@ const register = async (req,res)=>{
         role:user.role,
         point:user.point,
         buyProblem:user.buyProblem,
+        token:token,
     }
      
      res.status(201).json({
         user:reply,
-        message:"Loggin Successfully"
+        message:"Loggin Successfully",
+        token
     })
 
 
